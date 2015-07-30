@@ -2,7 +2,7 @@
 React.js video chat client
 
 ## Usage
-* `make fresh`
+* `make init`
 * `npm start`
 * Profit!
 

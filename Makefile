@@ -1,5 +1,15 @@
 PHONY: refresh
 
+init:
+	@echo "Removing node_modules directory"
+	@rm -rf node_modules
+
+	@echo "Removing bower_components directory"
+	@rm -rf bower_components
+
+	@echo "Install Node modules"
+	@npm install
+
 fresh:
 	@echo "Remove Git"
 	@rm -rf .git
