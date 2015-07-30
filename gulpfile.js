@@ -10,6 +10,7 @@ var runSequence = require('run-sequence');
 var source = require('vinyl-source-stream');
 var $ = require('gulp-load-plugins')();
 var watchify = require('watchify');
+var jade = require("gulp-jade");
 
 /**
  * If gulp tasks should be run in 'production' mode
@@ -27,6 +28,11 @@ var config = {
         "main":   "./src/less/main.less",
         "source": "src/less/**/*.less",
         "dest":   "dist/css"
+    },
+    "jade":       {
+        "main":   "./src/jade/index.jade",
+        "source": "src/jade/**/*.jade",
+        "dest":   "./"
     },
     "deploySite": "http://"
 };
@@ -136,6 +142,17 @@ gulp.task('css', function () {
     return stream;
 });
 
+// Build Jade files
+gulp.task("jade", function () {
+    var stream = gulp.src(config.jade.main);
+
+    stream
+        .pipe(jade({pretty: !isProd}))
+        .pipe(gulp.dest(config.jade.dest));
+
+    return stream;
+});
+
 // Optimize Images
 gulp.task('images', function () {
     return gulp.src(['src/images/**/*'])
@@ -178,12 +195,13 @@ gulp.task('vendor', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(config.css.source, ['css']);
+    gulp.watch(config.css.source, ["css"]);
+    gulp.watch(config.jade.source, ["jade"]);
 });
 
 // Build development assets
 gulp.task('build', function () {
-    return runSequence(['images'], ['vendor', 'js', 'css']);
+    return runSequence(["images"], ["vendor", "js", "css", "jade"]);
 });
 
 // Build development assets and serve

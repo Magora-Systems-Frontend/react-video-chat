@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(name="description", content="")
+        meta(name="author", content="")
+
+        title React Chat
+
+        link(rel="stylesheet", href="dist/css/main.css")
+
+    body
+        nav.navbar.navbar-default
+            .container-fluid
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar")
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+
+                    a.navbar-brand(href="#") React Video Chat
+
+                // Collect the nav links, forms, and other content for toggling
+                .collapse.navbar-collapse#navbar
+                    ul.nav.navbar-nav
+                        li
+                            a(href="#about") About
+                // /.navbar-collapse
+            // /.container-fluid
+        // /.navbar
+
+        main
+            .container#app
+        // /main
+
+        script(src="dist/js/vendor.js")
+        script(src="dist/js/main.js")
+    // /body
+// /html

@@ -7,6 +7,9 @@ init:
 	@echo "Removing bower_components directory"
 	@rm -rf bower_components
 
+	@echo "Removing dist/ directory"
+	@rm -rf dist
+
 	@echo "Install Node modules"
 	@npm install
 

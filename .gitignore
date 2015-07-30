@@ -31,3 +31,9 @@ bower_components
 
 # Builds
 dist
+
+# JetBrains
+.idea
+
+# Entry point
+index.html
