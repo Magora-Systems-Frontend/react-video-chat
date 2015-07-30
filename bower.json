@@ -1,0 +1,33 @@
+{
+  "name":         "react-video-chat",
+  "version":      "0.0.1",
+  "homepage":     "https://github.com/Magora-Systems-Frontend/react-video-chat",
+  "authors":      [
+    "Magora Systems"
+  ],
+  "description":  "React.js video chat client",
+  "main":         "gulpfile.js",
+  "keywords":     [
+    "static",
+    "node",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "license":      "MIT",
+  "ignore":       [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "public/libs"
+  ],
+  "dependencies": {
+    "react":        "~0.13.1",
+    "react-router": "~0.13.2",
+    "flux":         "~2.0.2",
+    "classnames":   "~1.1.4",
+    "bootstrap":    "~3.3.5"
+  }
+}

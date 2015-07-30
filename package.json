@@ -1,0 +1,68 @@
+{
+  "name":            "react-video-chat",
+  "description":     "React.js video chat client",
+  "version":         "0.0.1",
+  "author":          "Magora Systems",
+  "bugs":            {
+    "url": "https://github.com/Magora-Systems-Frontend/react-video-chat/issues"
+  },
+  "dependencies":    {
+    "express":    "^4.13.0",
+    "http-proxy": "^1.11.1"
+  },
+  "devDependencies": {
+    "babelify":              "^5.0.5",
+    "browserify":            "^9.0.6",
+    "gulp":                  "^3.8.6",
+    "gulp-autoprefixer":     "^2.0.0",
+    "gulp-concat":           "^2.5.2",
+    "gulp-csso":             "^0.2.9",
+    "gulp-karma":            "0.0.4",
+    "gulp-less":             "^3.0.2",
+    "gulp-load-plugins":     "^0.8.1",
+    "gulp-size":             "^1.2.0",
+    "gulp-sourcemaps":       "^1.5.1",
+    "gulp-uglify":           "^1.0.2",
+    "gulp-util":             "^3.0.4",
+    "jasmine-core":          "^2.1.2",
+    "karma":                 "^0.12.32",
+    "karma-browserify":      "^4.1.2",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-jasmine":         "^0.3.4",
+    "psi":                   "^1.0.2",
+    "run-sequence":          "^1.0.2",
+    "vinyl-buffer":          "^1.0.0",
+    "vinyl-source-stream":   "^1.0.0",
+    "watchify":              "^3.2.3"
+  },
+  "engines":         {
+    "node": "0.12.2"
+  },
+  "homepage":        "https://github.com/Magora-Systems-Frontend/react-video-chat",
+  "keywords":        [
+    "css",
+    "html",
+    "node",
+    "less",
+    "reactjs",
+    "static"
+  ],
+  "license":         "MIT",
+  "main":            "gulpfile.js",
+  "repository":      {
+    "type": "git",
+    "url":  "git://github.com/Magora-Systems-Frontend/react-video-chat.git"
+  },
+  "scripts":         {
+    "build":       "gulp build",
+    "build:prod":  "gulp build --prod",
+    "deploy":      "git subtree push --prefix dist origin gh-pages",
+    "pagespeed":   "gulp pagespeed",
+    "preinstall":  "make refresh",
+    "postinstall": "bower install",
+    "start":       "gulp",
+    "start:prod":  "gulp --prod",
+    "test":        "node_modules/karma/bin/karma start test/karma.conf.js",
+    "test:single": "npm run test -- --single-run"
+  }
+}
