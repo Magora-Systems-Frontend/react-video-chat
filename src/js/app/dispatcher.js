@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = new Flux.Dispatcher();
+export default new Flux.Dispatcher();

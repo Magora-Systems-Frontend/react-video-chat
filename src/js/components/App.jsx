@@ -3,8 +3,8 @@
 let RouteHandler = ReactRouter.RouteHandler;
 
 class App extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             open: false

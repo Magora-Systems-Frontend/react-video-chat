@@ -1,22 +1,27 @@
 "use strict";
 
 // Components
-import App from "../components/app.jsx";
-import Home from "../components/home.jsx";
-import NotFound from "../components/not-found.jsx";
-import About from "../components/about.jsx";
-
+import App from "../components/App.jsx";
+import Home from "../components/Home.jsx";
+import NotFound from "../components/NotFound.jsx";
+import About from "../components/About.jsx";
+import Logout from "../components/Logout.jsx";
+import ChatApp from "../components/ChatApp.jsx";
+import Register from "../components/Register.jsx";
 
 // Dependencies
 let Route = ReactRouter.Route;
 let DefaultRoute = ReactRouter.DefaultRoute;
 let NotFoundRoute = ReactRouter.NotFoundRoute;
 
-var routes = (
+let routes = (
     <Route path="/" handler={App}>
         <DefaultRoute handler={Home}/>
         <NotFoundRoute handler={NotFound}/>
         <Route path="about" handler={About}/>
+        <Route path="chat" handler={ChatApp}/>
+        <Route path="register" handler={Register}/>
+        <Route path="logout" handler={Logout}/>
     </Route>
 );
 

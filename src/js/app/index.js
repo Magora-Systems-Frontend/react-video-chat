@@ -1,8 +1,10 @@
 "use strict";
 
-var App = {
+window.React = React; // export for http://fb.me/react-devtools
+
+let App = {
     dispatcher: require("./dispatcher"),
     router:     require("./router.jsx")
 };
 
-module.exports = App;
+export default App;
