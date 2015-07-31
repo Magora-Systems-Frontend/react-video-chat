@@ -16,9 +16,9 @@ export default {
         let timestamp = Date.now();
 
         return {
-            id:         'm_' + timestamp,
+            id:         "m_" + timestamp,
             threadID:   currentThreadID,
-            authorName: 'Me', // FIXME: Hardcode
+            authorName: "Me", // FIXME: Hardcode
             date:       new Date(timestamp),
             text:       text,
             isRead:     true

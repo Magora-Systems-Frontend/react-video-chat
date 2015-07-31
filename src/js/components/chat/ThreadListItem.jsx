@@ -1,8 +1,7 @@
 "use strict";
 
 import ChatThreadActionCreators from "../../actions/ChatThreadActionCreators";
-
-let cx = require("react/lib/cx");
+import cx from "react/lib/cx";
 
 let ReactPropTypes = React.PropTypes;
 

@@ -5,6 +5,7 @@ import App from "../components/App.jsx";
 import Home from "../components/Home.jsx";
 import NotFound from "../components/NotFound.jsx";
 import About from "../components/About.jsx";
+import Login from "../components/Login.jsx";
 import Logout from "../components/Logout.jsx";
 import ChatApp from "../components/ChatApp.jsx";
 import Register from "../components/Register.jsx";
@@ -21,6 +22,7 @@ let routes = (
         <Route path="about" handler={About}/>
         <Route path="chat" handler={ChatApp}/>
         <Route path="register" handler={Register}/>
+        <Route path="login" handler={Login}/>
         <Route path="logout" handler={Logout}/>
     </Route>
 );

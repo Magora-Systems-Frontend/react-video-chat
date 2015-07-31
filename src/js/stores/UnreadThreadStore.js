@@ -4,12 +4,11 @@ import ChatAppDispatcher from "../app/dispatcher";
 import ChatConstants from "../constants/ChatConstants";
 import MessageStore from "../stores/MessageStore";
 import ThreadStore from "../stores/ThreadStore";
-
-let EventEmitter = require('events').EventEmitter,
-    assign       = require('object-assign');
+import assign from "object-assign";
+import { EventEmitter } from "events";
 
 let ActionTypes  = ChatConstants.ActionTypes,
-    CHANGE_EVENT = 'change';
+    CHANGE_EVENT = "change";
 
 let UnreadThreadStore = assign({}, EventEmitter.prototype, {
     emitChange: function () {

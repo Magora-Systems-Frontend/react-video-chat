@@ -3,9 +3,8 @@
 import ChatAppDispatcher from "../app/dispatcher";
 import ChatConstants from "../constants/ChatConstants";
 import ChatMessageUtils from "../utils/ChatMessageUtils";
-
-let EventEmitter = require("events").EventEmitter,
-    assign       = require("object-assign");
+import assign from "object-assign";
+import { EventEmitter } from "events";
 
 let ActionTypes  = ChatConstants.ActionTypes,
     CHANGE_EVENT = "change";
