@@ -4,8 +4,9 @@ import ChatExampleData from "../ChatExampleData";
 import ChatWebAPIUtils from "../utils/ChatWebAPIUtils";
 import MessageSection from "./chat/MessageSection.jsx";
 import ThreadSection from "./chat/ThreadSection.jsx";
+import AuthenticatedComponent from "./AuthenticatedComponent.jsx";
 
-class ChatApp extends React.Component {
+export default AuthenticatedComponent(class ChatApp extends React.Component {
     constructor() {
         ChatExampleData.init(); // load example data into localstorage
         ChatWebAPIUtils.getAllMessages();
@@ -19,6 +20,4 @@ class ChatApp extends React.Component {
             </div>
         );
     }
-}
-
-export default ChatApp;
+});

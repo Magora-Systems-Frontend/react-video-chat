@@ -1,39 +1,85 @@
 "use strict";
 
-let RouteHandler = ReactRouter.RouteHandler;
+import LoginStore from "../stores/LoginStore";
+import { Nav, Navbar, NavItem, MenuItem, Button } from "react-bootstrap";
+import AuthService from "../services/Auth";
+
+let RouteHandler = ReactRouter.RouteHandler,
+    Link         = ReactRouter.Link;
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            open: false
+        this.state = this._getLoginState();
+    }
+
+    _getLoginState() {
+        return {
+            userLoggedIn: LoginStore.isLoggedIn()
         };
     }
 
-    /**
-     * Handle click event
-     * @param {string} source
-     * @param {SyntheticEvent} event
-     */
-    onClick(source, event) {
-        if (source === "main") {
-            // Always close nav drawer if main was clicked
-            this.setState({open: false});
-        } else {
-            // Otherwise toggle open
-            this.setState({open: !this.state.open});
-        }
+    componentDidMount() {
+        this.changeListener = this._onChange.bind(this);
+        LoginStore.addChangeListener(this.changeListener);
+    }
+
+    _onChange() {
+        this.setState(this._getLoginState());
+    }
+
+    componentWillUnmount() {
+        LoginStore.removeChangeListener(this.changeListener);
+    }
+
+    logout(e) {
+        e.preventDefault();
+        AuthService.logout();
     }
 
     render() {
-        let open = {open: this.state.open};
-
         return (
-            <div>
-                <RouteHandler/>
-            </div>
-        )
+            <Navbar brand="React Video Chat" inverse toggleNavKey={0}>
+                <Nav right eventKey={0}> {/* This is the eventKey referenced */}
+                    {this.headerItems}
+                </Nav>
+
+                <RouteHandler />
+            </Navbar>
+        );
+    }
+
+    get headerItems() {
+        if (!this.state.userLoggedIn) {
+            return (
+                <div id="navbar" className="navbar-collapse collapse">
+                    <ul className="nav navbar-nav navbar-right">
+                        <li>
+                            <Link to="login">Login</Link>
+                        </li>
+
+                        <li>
+                            <Link to="signup">Signup</Link>
+                        </li>
+                    </ul>
+                </div>
+            )
+        } else {
+            return (
+                <div id="navbar" className="navbar-collapse collapse">
+                    <ul className="nav navbar-nav navbar-right">
+                        <li>
+                            <Link to="home">Home</Link>
+                        </li>
+
+                        <li>
+                            <a href="#" onClick={this.logout}>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            )
+        }
     }
 }
 

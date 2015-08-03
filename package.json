@@ -1,49 +1,51 @@
 {
-  "name":            "react-video-chat",
-  "description":     "React.js video chat client",
-  "version":         "0.0.1",
-  "author":          "Magora Systems",
-  "bugs":            {
+  "name": "react-video-chat",
+  "description": "React.js video chat client",
+  "version": "0.0.1",
+  "author": "Magora Systems",
+  "bugs": {
     "url": "https://github.com/Magora-Systems-Frontend/react-video-chat/issues"
   },
-  "dependencies":    {
-    "express":    "^4.13.0",
+  "dependencies": {
+    "express": "^4.13.0",
     "http-proxy": "^1.11.1"
   },
   "devDependencies": {
-    "babelify":              "^5.0.5",
-    "browserify":            "^9.0.6",
-    "gulp":                  "^3.8.6",
-    "gulp-autoprefixer":     "^2.0.0",
-    "gulp-concat":           "^2.5.2",
-    "gulp-csso":             "^0.2.9",
-    "gulp-karma":            "0.0.4",
-    "gulp-less":             "^3.0.2",
-    "gulp-load-plugins":     "^0.8.1",
-    "gulp-size":             "^1.2.0",
-    "gulp-sourcemaps":       "^1.5.1",
-    "gulp-uglify":           "^1.0.2",
-    "gulp-util":             "^3.0.4",
-    "gulp-jade":             "^1.0.1",
-    "jasmine-core":          "^2.1.2",
-    "karma":                 "^0.12.32",
-    "karma-browserify":      "^4.1.2",
+    "babelify": "^5.0.5",
+    "browserify": "^9.0.6",
+    "gulp": "^3.8.6",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-csso": "^0.2.9",
+    "gulp-jade": "^1.0.1",
+    "gulp-karma": "0.0.4",
+    "gulp-less": "^3.0.2",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-size": "^1.2.0",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.0.2",
+    "gulp-util": "^3.0.4",
+    "jasmine-core": "^2.1.2",
+    "karma": "^0.12.32",
+    "karma-browserify": "^4.1.2",
     "karma-chrome-launcher": "^0.1.5",
-    "karma-jasmine":         "^0.3.4",
-    "psi":                   "^1.0.2",
-    "run-sequence":          "^1.0.2",
-    "vinyl-buffer":          "^1.0.0",
-    "vinyl-source-stream":   "^1.0.0",
-    "watchify":              "^3.2.3",
-    "object-assign":         "^1.0.0",
-    "keymirror":             "~0.1.0",
-    "react":                 "^0.13.3"
+    "karma-jasmine": "^0.3.4",
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "psi": "^1.0.2",
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.24.3",
+    "react-mixin": "^1.7.0",
+    "run-sequence": "^1.0.2",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^3.2.3"
   },
-  "engines":         {
+  "engines": {
     "node": "0.12.2"
   },
-  "homepage":        "https://github.com/Magora-Systems-Frontend/react-video-chat",
-  "keywords":        [
+  "homepage": "https://github.com/Magora-Systems-Frontend/react-video-chat",
+  "keywords": [
     "css",
     "html",
     "node",
@@ -51,22 +53,22 @@
     "reactjs",
     "static"
   ],
-  "license":         "MIT",
-  "main":            "gulpfile.js",
-  "repository":      {
+  "license": "MIT",
+  "main": "gulpfile.js",
+  "repository": {
     "type": "git",
-    "url":  "git://github.com/Magora-Systems-Frontend/react-video-chat.git"
+    "url": "git://github.com/Magora-Systems-Frontend/react-video-chat.git"
   },
-  "scripts":         {
-    "build":       "gulp build",
-    "build:prod":  "gulp build --prod",
-    "deploy":      "git subtree push --prefix dist origin gh-pages",
-    "pagespeed":   "gulp pagespeed",
-    "preinstall":  "make refresh",
+  "scripts": {
+    "build": "gulp build",
+    "build:prod": "gulp build --prod",
+    "deploy": "git subtree push --prefix dist origin gh-pages",
+    "pagespeed": "gulp pagespeed",
+    "preinstall": "make refresh",
     "postinstall": "bower install",
-    "start":       "gulp",
-    "start:prod":  "gulp --prod",
-    "test":        "node_modules/karma/bin/karma start test/karma.conf.js",
+    "start": "gulp",
+    "start:prod": "gulp --prod",
+    "test": "node_modules/karma/bin/karma start test/karma.conf.js",
     "test:single": "npm run test -- --single-run"
   }
 }
