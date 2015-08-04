@@ -1,22 +1,35 @@
-import ChatAppDispatcher from "../app/dispatcher";
-import {LOGIN_USER, LOGOUT_USER} from '../constants/LoginConstants.js';
+"use strict";
 
-let Navigation = ReactRouter.Navigation;
+import ChatAppDispatcher from "../app/dispatcher";
+import RouterContainer from "../services/RouterContainer";
+import {LOGIN_USER, LOGOUT_USER} from "../constants/LoginConstants.js";
+import {Navigation} from "react-router";
 
 export default {
-    loginUser: (jwt) => {
-        Navigation.transitionTo("/");
-        localStorage.setItem("jwt", jwt);
+    loginUser: (message) => {
+        var savedToken = sessionStorage.getItem("videoChat");
+
+        message.token = "yhju"; //FIXME: Debug purposes
+
+        if (savedToken !== message.token) {
+            let nextPath = RouterContainer.get().getCurrentQuery().nextPath || "/";
+
+            RouterContainer.get().transitionTo(nextPath);
+
+            console.info("transitionTo", nextPath);
+
+            sessionStorage.setItem("videoChat", message.token);
+        }
 
         ChatAppDispatcher.dispatch({
             actionType: LOGIN_USER,
-            jwt:        jwt
+            message:    message
         });
     },
 
     logoutUser: () => {
-        Navigation.transitionTo("/login");
-        localStorage.removeItem("jwt");
+        RouterContainer.get().transitionTo("/login");
+        sessionStorage.removeItem("videoChat");
 
         ChatAppDispatcher.dispatch({
             actionType: LOGOUT_USER

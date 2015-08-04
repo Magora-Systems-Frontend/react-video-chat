@@ -1,5 +1,7 @@
 "use strict";
 
+import React from "react";
+
 import MessageStore from "../../stores/MessageStore";
 import ThreadListItem from "./ThreadListItem.jsx";
 import ThreadStore from "../../stores/ThreadStore";

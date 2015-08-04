@@ -1,3 +1,5 @@
+"use strict";
+
 import { LOGIN_USER, LOGOUT_USER } from "../constants/LoginConstants";
 import BaseStore from "./BaseStore";
 
@@ -5,14 +7,12 @@ class LoginStore extends BaseStore {
     constructor() {
         super(this._registerToActions.bind(this));
         this._user = null;
-        this._jwt = null;
     }
 
     _registerToActions(action) {
         switch (action.actionType) {
             case LOGIN_USER:
-                this._jwt = action.jwt;
-                this._user = this._jwt;
+                this._user = action.message;
                 this.emitChange();
                 break;
 
@@ -28,10 +28,6 @@ class LoginStore extends BaseStore {
 
     get user() {
         return this._user;
-    }
-
-    get jwt() {
-        return this._jwt;
     }
 
     isLoggedIn() {

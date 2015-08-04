@@ -1,5 +1,7 @@
 "use strict";
 
+import React from "react";
+
 import MessageComposer from "./MessageComposer.jsx";
 import MessageListItem from "./MessageListItem.jsx";
 import MessageStore from "../../stores/MessageStore";

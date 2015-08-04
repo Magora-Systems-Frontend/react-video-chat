@@ -11,6 +11,9 @@ export default class Login extends React.Component {
         };
     }
 
+    /**
+     * @param {Event} e
+     */
     login(e) {
         e.preventDefault();
 

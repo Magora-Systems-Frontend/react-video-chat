@@ -1,11 +1,10 @@
 "use strict";
 
-import LoginStore from "../stores/LoginStore";
+import React from "react";
 import { Nav, Navbar, NavItem, MenuItem, Button } from "react-bootstrap";
+import { RouteHandler, Link } from "react-router";
+import LoginStore from "../stores/LoginStore";
 import AuthService from "../services/Auth";
-
-let RouteHandler = ReactRouter.RouteHandler,
-    Link         = ReactRouter.Link;
 
 class App extends React.Component {
     constructor(props) {

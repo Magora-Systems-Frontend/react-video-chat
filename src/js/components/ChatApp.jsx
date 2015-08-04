@@ -1,5 +1,7 @@
 "use strict";
 
+import React from "react";
+
 import ChatExampleData from "../ChatExampleData";
 import ChatWebAPIUtils from "../utils/ChatWebAPIUtils";
 import MessageSection from "./chat/MessageSection.jsx";

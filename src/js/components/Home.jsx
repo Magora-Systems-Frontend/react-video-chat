@@ -1,5 +1,7 @@
 "use strict";
 
+import React from "react";
+
 class Home extends React.Component {
     constructor() {
         super();
@@ -10,7 +12,7 @@ class Home extends React.Component {
             <div>
                 <h2 className="text-center">React Chat</h2>
 
-                <div className="container" id="app"></div>
+                <div id="app"></div>
             </div>
         )
     }

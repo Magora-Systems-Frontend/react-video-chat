@@ -1,3 +1,5 @@
 "use strict";
 
-export default new Flux.Dispatcher();
+import {Dispatcher} from "flux";
+
+export default new Dispatcher();

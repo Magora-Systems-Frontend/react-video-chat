@@ -1,3 +1,6 @@
+"use strict";
+
+import React from "react";
 import LoginStore from "../stores/LoginStore";
 
 export default (ComposedComponent) => {

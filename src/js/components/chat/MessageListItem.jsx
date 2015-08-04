@@ -1,5 +1,7 @@
 "use strict";
 
+import React from "react";
+
 let ReactPropTypes = React.PropTypes;
 
 class MessageListItem extends React.Component {

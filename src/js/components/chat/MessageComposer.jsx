@@ -1,5 +1,6 @@
 "use strict";
 
+import React from "react";
 import ChatMessageActionCreators from "../../actions/ChatMessageActionCreators";
 
 let ENTER_KEY_CODE = 13;

@@ -172,21 +172,13 @@ gulp.task("vendor", function () {
         stream = gulp.src([
             bower("jquery/dist/jquery.min.js"),
             bower("bootstrap/dist/js/bootstrap.min.js"),
-            bower("classnames/index.js"),
-            bower("flux/dist/Flux.js"),
-            bower("react/react.min.js"),
-            bower("react-router/build/umd/ReactRouter.min.js")
         ]);
     }
     else {
         // Un-minified bower dependencies
         stream = gulp.src([
             bower("jquery/dist/jquery.js"),
-            bower("bootstrap/dist/js/bootstrap.js"),
-            bower("classnames/index.js"),
-            bower("flux/dist/Flux.js"),
-            bower("react/react.js"),
-            bower("react-router/build/umd/ReactRouter.js")
+            bower("bootstrap/dist/js/bootstrap.js")
         ]);
     }
 
