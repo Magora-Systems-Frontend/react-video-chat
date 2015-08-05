@@ -1,6 +1,7 @@
 "use strict";
 
 import React from "react";
+import ReactMixin from "react-mixin";
 import ChatMessageActionCreators from "../../actions/ChatMessageActionCreators";
 
 let ENTER_KEY_CODE = 13;
@@ -8,7 +9,7 @@ let ENTER_KEY_CODE = 13;
 class MessageComposer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {text: ''};
+        this.state = {text: ""};
     }
 
     render() {
@@ -16,15 +17,10 @@ class MessageComposer extends React.Component {
             <textarea
                 className="message-composer"
                 name="message"
-                value={this.state.text}
-                onChange={this._onChange.bind(this)}
+                valueLink={this.linkState("text")}
                 onKeyDown={this._onKeyDown.bind(this)}
                 />
         );
-    }
-
-    _onChange(event, value) {
-        this.setState({text: event.currentTarget.value});
     }
 
     _onKeyDown(event) {
@@ -37,7 +33,7 @@ class MessageComposer extends React.Component {
                 ChatMessageActionCreators.createMessage(text, this.props.threadID);
             }
 
-            this.setState({text: ''});
+            this.setState({text: ""});
         }
     }
 }
@@ -45,5 +41,7 @@ class MessageComposer extends React.Component {
 MessageComposer.propTypes = {
     threadID: React.PropTypes.string.isRequired
 };
+
+ReactMixin(MessageComposer.prototype, React.addons.LinkedStateMixin);
 
 export default MessageComposer;
