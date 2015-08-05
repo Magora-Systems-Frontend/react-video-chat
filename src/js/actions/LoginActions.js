@@ -12,7 +12,7 @@ export default {
         message.token = "yhju"; //FIXME: Debug purposes
 
         if (savedToken !== message.token) {
-            let nextPath = RouterContainer.get().getCurrentQuery().nextPath || "/";
+            let nextPath = RouterContainer.get().getCurrentQuery().nextPath || "/chat";
 
             RouterContainer.get().transitionTo(nextPath);
 
