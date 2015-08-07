@@ -5,23 +5,28 @@ import { LOGIN_URL, SIGNUP_URL } from "../constants/LoginConstants";
 import LoginActions from "../actions/LoginActions";
 
 class AuthService {
-    login(login, password) {
-        let socket = io.connect("http://localhost:8088"); //FIXME: Hardcode
+    constructor() {
+        this.socket = io.connect("http://localhost:8088"); //FIXME: Hardcode
+    }
 
-        socket.emit("login", {login: login, password: password});
+    login(login, password) {
+        this.socket.emit("login", {login: login, password: password});
         console.info("Login sent");
 
-        socket.on("setToken", LoginActions.loginUser);
+        this.socket.on("setToken", LoginActions.loginUser);
     }
 
     logout() {
-        console.log('logout')
+        console.info("logout")
 
         LoginActions.logoutUser();
     }
 
-    signup(username, password, extra) {
-        console.log('signup')
+    signup(userName, email, password) {
+        this.socket.emit("register", {userName: userName, email: email, password: password});
+        console.info("Register sent");
+
+        //socket.on("setToken", LoginActions.loginUser);
 
 //        return this.handleAuth(when(request({
 //            url: SIGNUP_URL,
