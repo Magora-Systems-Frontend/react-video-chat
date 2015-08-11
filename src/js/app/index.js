@@ -37,10 +37,10 @@ let routes = (
 let router = ReactRouter.create({routes});
 RouterContainer.set(router);
 
-let jwt = localStorage.getItem("jwt");
+let token = sessionStorage.getItem("videoChat");
 
-if (jwt) {
-    LoginActions.loginUser(jwt);
+if (token) {
+    LoginActions.loginUser(token);
 }
 
 router.run(function (Handler) {

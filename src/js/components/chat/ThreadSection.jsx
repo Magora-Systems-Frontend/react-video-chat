@@ -1,9 +1,11 @@
 "use strict";
 
 import React from "react";
+import { Panel, ListGroup } from "react-bootstrap";
 
 import MessageStore from "../../stores/MessageStore";
 import ThreadListItem from "./ThreadListItem.jsx";
+import ThreadUnread from "./ThreadUnread.jsx";
 import ThreadStore from "../../stores/ThreadStore";
 import UnreadThreadStore from "../../stores/UnreadThreadStore";
 
@@ -42,19 +44,15 @@ class ThreadSection extends React.Component {
             );
         }, this);
 
-        let unread = this.state.unreadCount === 0
-            ? null
-            : <span>Unread threads: {this.state.unreadCount}</span>;
-
         return (
-            <div className="thread-section">
-                <div className="thread-count">
-                    {unread}
-                </div>
+            <div className="thread-section col-lg-4">
+                <ThreadUnread unreadCount={this.state.unreadCount} />
 
-                <ul className="thread-list">
-                    {threadListItems}
-                </ul>
+                <Panel className="thread-list">
+                    <ListGroup fill>
+                        {threadListItems}
+                    </ListGroup>
+                </Panel>
             </div>
         );
     }
@@ -65,7 +63,6 @@ class ThreadSection extends React.Component {
     _onChange() {
         this.setState(getStateFromStores());
     }
-
 }
 
 export default ThreadSection;

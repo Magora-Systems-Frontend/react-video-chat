@@ -1,7 +1,9 @@
 "use strict";
 
 import React from "react";
+import { ListGroupItem } from "react-bootstrap";
 import cx from "classnames";
+
 import ChatThreadActionCreators from "../../actions/ChatThreadActionCreators";
 
 let ReactPropTypes = React.PropTypes;
@@ -17,7 +19,7 @@ class ThreadListItem extends React.Component {
             });
 
         return (
-            <li className={className} onClick={this._onClick.bind(this)}>
+            <ListGroupItem className={className} onClick={this._onClick.bind(this)}>
                 <h5 className="thread-name">{thread.name}</h5>
 
                 <div className="thread-time">
@@ -27,7 +29,7 @@ class ThreadListItem extends React.Component {
                 <div className="thread-last-message">
                     {lastMessage.text}
                 </div>
-            </li>
+            </ListGroupItem>
         );
     }
 

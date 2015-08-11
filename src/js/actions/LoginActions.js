@@ -6,24 +6,27 @@ import {LOGIN_USER, LOGOUT_USER} from "../constants/LoginConstants.js";
 import {Navigation} from "react-router";
 
 export default {
-    loginUser: (message) => {
+    loginUser: (token) => {
+        token = "yhju"; //FIXME: Debug purposes
+
+        if (!token) {
+            console.error("Token is undefined");
+        }
+
         var savedToken = sessionStorage.getItem("videoChat");
 
-        message.token = "yhju"; //FIXME: Debug purposes
-
-        if (savedToken !== message.token) {
+        if (savedToken !== token) {
             let nextPath = RouterContainer.get().getCurrentQuery().nextPath || "/chat";
 
             RouterContainer.get().transitionTo(nextPath);
-
             console.info("transitionTo", nextPath);
 
-            sessionStorage.setItem("videoChat", message.token);
+            sessionStorage.setItem("videoChat", token);
         }
 
         ChatAppDispatcher.dispatch({
             actionType: LOGIN_USER,
-            message:    message
+            token:      token
         });
     },
 

@@ -1,6 +1,7 @@
 "use strict";
 
 import React from "react";
+import { ListGroupItem } from "react-bootstrap";
 
 let ReactPropTypes = React.PropTypes;
 
@@ -9,15 +10,15 @@ class MessageListItem extends React.Component {
         let message = this.props.message;
 
         return (
-            <li className="message-list-item">
-                <h5 className="message-author-name">{message.authorName}</h5>
+            <ListGroupItem className="message-list-item">
+                <span className="message-time">
+                    [{message.date.toLocaleTimeString()}]
+                </span>
 
-                <div className="message-time">
-                    {message.date.toLocaleTimeString()}
-                </div>
+                <span className="message-author-name">{message.authorName}:</span>
 
-                <div className="message-text">{message.text}</div>
-            </li>
+                <span className="message-text">{message.text}</span>
+            </ListGroupItem>
         );
     }
 }

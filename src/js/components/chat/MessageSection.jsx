@@ -1,6 +1,7 @@
 "use strict";
 
 import React from "react";
+import { Panel, ListGroup } from "react-bootstrap";
 
 import MessageComposer from "./MessageComposer.jsx";
 import MessageListItem from "./MessageListItem.jsx";
@@ -43,15 +44,20 @@ class MessageSection extends React.Component {
     render() {
         let messageListItems = this.state.messages.map(getMessageListItem);
 
+        console.log(this.state.thread)
+
         return (
-            <div className="message-section">
-                <h3 className="message-thread-heading">{this.state.thread.name}</h3>
+            <div className="col-lg-8">
+                <Panel
+                    className="message-section "
+                    header={this.state.thread.name}>
 
-                <ul className="message-list" ref="messageList">
-                    {messageListItems}
-                </ul>
+                    <ListGroup ref="messageList" fill className="message-list">
+                        {messageListItems}
+                    </ListGroup>
+                </Panel>
 
-                <MessageComposer threadID={this.state.thread.id}/>
+                <MessageComposer threadID={this.state.thread.id} />
             </div>
         );
     }
@@ -62,7 +68,7 @@ class MessageSection extends React.Component {
 
     _scrollToBottom() {
         //noinspection JSUnresolvedVariable
-        let ul = this.refs.messageList.getDOMNode();
+        let ul = React.findDOMNode(this.refs.messageList);
         ul.scrollTop = ul.scrollHeight;
     }
 

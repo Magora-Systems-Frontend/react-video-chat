@@ -39,14 +39,16 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <Navbar brand="React Video Chat" inverse toggleNavKey={0}>
                     <Nav right eventKey={0}> {/* This is the eventKey referenced */}
                         {this.headerItems}
                     </Nav>
                 </Navbar>
 
-                <RouteHandler />
+                <div className="container">
+                    <RouteHandler />
+                </div>
             </div>
         );
     }

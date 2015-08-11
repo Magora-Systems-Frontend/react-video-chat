@@ -16,7 +16,7 @@ export default AuthenticatedComponent(class ChatApp extends React.Component {
 
     render() {
         return (
-            <div className="chatapp">
+            <div className="chatapp row">
                 <ThreadSection />
                 <MessageSection />
             </div>

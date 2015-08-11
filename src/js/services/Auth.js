@@ -13,6 +13,8 @@ class AuthService {
         this.socket.emit("login", {login: login, password: password});
         console.info("Login sent");
 
+        LoginActions.loginUser(); //TODO: Delete me
+
         this.socket.on("setToken", LoginActions.loginUser);
     }
 
@@ -25,28 +27,7 @@ class AuthService {
     signup(userName, email, password) {
         this.socket.emit("register", {userName: userName, email: email, password: password});
         console.info("Register sent");
-
-        //socket.on("setToken", LoginActions.loginUser);
-
-//        return this.handleAuth(when(request({
-//            url: SIGNUP_URL,
-//            method: 'POST',
-//            crossOrigin: true,
-//            type: 'json',
-//            data: {
-//                username, password, extra
-//            }
-//        })));
     }
-
-    //handleAuth(loginPromise) {
-    //    return loginPromise
-    //        .then(function (response) {
-    //            var jwt = response.id_token;
-    //            LoginActions.loginUser(jwt);
-    //            return true;
-    //        });
-    //}
 }
 
 export default new AuthService();

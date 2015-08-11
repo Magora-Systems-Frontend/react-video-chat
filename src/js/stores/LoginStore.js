@@ -6,18 +6,19 @@ import BaseStore from "./BaseStore";
 class LoginStore extends BaseStore {
     constructor() {
         super(this._registerToActions.bind(this));
-        this._user = null;
+        this._token = null;
     }
 
     _registerToActions(action) {
         switch (action.actionType) {
+
             case LOGIN_USER:
-                this._user = action.message;
+                this._token = action.token;
                 this.emitChange();
                 break;
 
             case LOGOUT_USER:
-                this._user = null;
+                this._token = null;
                 this.emitChange();
                 break;
 
@@ -27,11 +28,11 @@ class LoginStore extends BaseStore {
     }
 
     get user() {
-        return this._user;
+        return this._token;
     }
 
     isLoggedIn() {
-        return !!this._user;
+        return !!this._token;
     }
 }
 

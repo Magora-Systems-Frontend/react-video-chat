@@ -2,6 +2,7 @@
 
 import React from "react";
 import ReactMixin from "react-mixin";
+import { Input } from "react-bootstrap";
 import ChatMessageActionCreators from "../../actions/ChatMessageActionCreators";
 
 let ENTER_KEY_CODE = 13;
@@ -14,11 +15,11 @@ class MessageComposer extends React.Component {
 
     render() {
         return (
-            <textarea
-                className="message-composer"
-                name="message"
-                valueLink={this.linkState("text")}
-                onKeyDown={this._onKeyDown.bind(this)}
+            <Input type="textarea"
+                   placeholder="Type your message here and hit Enter!"
+                   name="message"
+                   valueLink={this.linkState("text")}
+                   onKeyDown={this._onKeyDown.bind(this)}
                 />
         );
     }
