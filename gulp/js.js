@@ -3,7 +3,6 @@
 var browserify = require("browserify"),
     babelify   = require("babelify"),
     watchify   = require("watchify"),
-    $          = require("gulp-load-plugins")(),
     source     = require("vinyl-source-stream"),
     buffer     = require("vinyl-buffer");
 

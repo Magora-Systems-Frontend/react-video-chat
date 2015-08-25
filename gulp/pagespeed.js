@@ -1,7 +1,6 @@
 "use strict";
 
-var psi         = require("psi"),
-    runSequence = require("run-sequence");
+var psi = require("psi");
 
 // Run Pagespeed Insights on mobile
 gulp.task("pagespeed:mobile", function (done) {
@@ -21,5 +20,5 @@ gulp.task("pagespeed:desktop", function (done) {
 
 // Run Pagespeed Insights on both mobile and desktop
 gulp.task("pagespeed", function () {
-    return runSequence("pagespeed:mobile", "pagespeed:desktop");
+    return $.runSequence("pagespeed:mobile", "pagespeed:desktop");
 });

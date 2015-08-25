@@ -1,8 +1,5 @@
 "use strict";
 
-var $      = require("gulp-load-plugins")(),
-    notify = require("gulp-notify");
-
 // Build CSS files
 gulp.task("css", function () {
     var stream = gulp.src(config.css.main);
@@ -10,8 +7,8 @@ gulp.task("css", function () {
     stream
         .pipe(!isProd ? $.sourcemaps.init({loadMaps: true}) : $.util.noop())
         .pipe($.less())
-        .on("error", notify.onError({
-            message: 'LESS compile error: <%= error.message %>'
+        .on("error", $.notify.onError({
+            message: "LESS compile error: <%= error.message %>"
         }))
         .pipe(!isProd ? $.sourcemaps.write() : $.util.noop())
         .pipe($.size({title: "CSS"}))

@@ -1,7 +1,5 @@
 "use strict";
 
-var $ = require("gulp-load-plugins")();
-
 gulp.task("vendor", function () {
     var stream;
 
